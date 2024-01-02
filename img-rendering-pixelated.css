@@ -1,0 +1,4 @@
+
+.img-rendering-pixelated .markdown-preview-section img {
+  image-rendering: pixelated;
+}
