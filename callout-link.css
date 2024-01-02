@@ -1,0 +1,294 @@
+/* https://docs.obsidian.md/Reference/CSS+variables/Editor/Callout */
+/* https://docs.obsidian.md/Reference/CSS+variables/Foundations/Typography */
+/* https://docs.obsidian.md/Reference/CSS+variables/Foundations/Spacing */
+
+/*
+
+Callout format:
+
+> [!link] ignored ← title ignored, hlink produces horizontal link callout rather than vertical/card callout
+> [Example Title w/ link](https://example.com/xxx) ← title, can be just text but also link
+>
+> ![[S8288469ecf534a62b5462ae9ef47bf5dK.webp]] ← cover image
+>
+> [example.com](https://example.com/xxx) ← link, can be also be an empty link: []()
+>
+> A very nice description ← description
+
+*/
+
+.callout[data-callout="link"],
+.callout[data-callout="hlink"] {
+  /* callout */
+
+  --callout-padding: 0;
+  --callout-color: transparent;
+  --callout-blend-mode: normal;
+
+  --callout-content-padding: 0;
+
+  /* callout-link */
+
+  --callout-link-padding: var(--size-4-4);
+  --callout-link-max-width: 30rem;
+  --callout-link-min-width: 20rem;
+  --callout-link-max-height: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.theme-dark .callout[data-callout="link"],
+.theme-dark .callout[data-callout="hlink"] {
+  /* callout */
+
+  --callout-content-background: var(--callout-link-background);
+
+  /* callout link */
+
+  --callout-link-background: rgb(18 18 18);
+  --callout-link-link-color: rgb(125 125 125);
+  --callout-link-link-hover-color: rgb(145 145 145);
+  --callout-link-title-color: rgb(241 241 241);
+  --callout-link-desc-color: var(--callout-link-link-color);
+  --callout-link-cover-image-background: black;
+}
+
+.theme-light .callout[data-callout="link"],
+.theme-light .callout[data-callout="hlink"] {
+  /* callout */
+
+  --callout-content-background: var(--callout-link-background);
+
+  /* callout link */
+
+  --callout-link-background: rgba(0, 0, 0, 0.024);
+  --callout-link-link-color: rgb(104, 104, 104);
+  --callout-link-link-hover-color: rgb(84, 84, 84);
+  --callout-link-title-color: rgb(35, 35, 35);
+  --callout-link-desc-color: var(--callout-link-link-color);
+  --callout-link-cover-image-background: white;
+}
+
+.callout[data-callout="link"] {
+  --callout-link-aspect-ratio: 1.91;
+  --callout-link-max-width: 30rem;
+}
+
+.callout[data-callout="hlink"] {
+  --callout-link-aspect-ratio: 1;
+  --callout-link-max-width: 100%;
+}
+
+.callout-link-ratio-3-4 .callout[data-callout="link"] {
+  --callout-link-aspect-ratio: 3 / 4;
+}
+
+.callout-link-max-w-20 .callout[data-callout="link"] {
+  --callout-link-max-width: 20rem;
+}
+
+@container (min-width: 40rem) {
+  .callout-link-max-w-20 .callout[data-callout="link"] .callout-content {
+    max-width: var(--callout-link-max-width);
+  }
+}
+
+.callout[data-callout="link"] .callout-title,
+.callout[data-callout="hlink"] .callout-title {
+  display: none;
+}
+
+.callout[data-callout="link"] .callout-content,
+.callout[data-callout="hlink"] .callout-content {
+  display: grid;
+  width: 100%;
+  min-width: var(--callout-link-min-width);
+  border-radius: var(--callout-radius);
+}
+
+.callout[data-callout="link"] .callout-content {
+  grid-template-columns: 100%;
+  grid-template-rows:
+    auto auto calc(var(--font-text-size) * var(--line-height-normal))
+    auto;
+  grid-template-areas:
+    "cover-image"
+    "link"
+    "title"
+    "desc";
+}
+
+@container (min-width: 50rem) {
+  .callout[data-callout="link"] .callout-content {
+    max-width: var(--callout-link-max-width);
+  }
+}
+
+.callout[data-callout="link"] .callout-content p,
+.callout[data-callout="hlink"] .callout-content p {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  display: -webkit-box;
+  overflow: hidden;
+
+  /* cover image */
+  &:nth-child(2) {
+    grid-area: cover-image;
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: var(--callout-link-aspect-ratio);
+    background-color: var(--callout-link-cover-image-background);
+  }
+
+  &:nth-child(2) img {
+    border-radius: 0;
+    object-fit: cover;
+    aspect-ratio: var(--callout-link-aspect-ratio);
+  }
+
+  /* link */
+  &:nth-child(3) {
+    grid-area: link;
+    color: var(--callout-link-link-color);
+    --link-external-color: var(--callout-link-link-color);
+    --link-external-decoration: none;
+    --link-external-decoration-hover: none;
+    --link-external-color-hover: var(--callout-link-link-hover-color);
+    --link-color: var(--link-external-color);
+    --link-decoration: var(--link-external-decoration);
+    --link-decoration-hover: var(--link-external-decoration-hover);
+    --link-color-hover: var(--link-external-color-hover);
+  }
+
+  &:nth-child(3) a {
+    display: block;
+    background-image: none;
+    padding: 0 var(--callout-link-padding);
+  }
+
+  /* title */
+  &:nth-child(1) {
+    grid-area: title;
+    padding: 0 var(--callout-link-padding);
+    color: var(--callout-link-title-color);
+    --link-external-color: var(--callout-link-title-color);
+    --link-external-decoration: none;
+    --link-external-decoration-hover: none;
+    --link-external-color-hover: var(--callout-link-title-color);
+    --link-color: var(--link-external-color);
+    --link-decoration: var(--link-external-decoration);
+    --link-decoration-hover: var(--link-external-decoration-hover);
+    --link-color-hover: var(--link-external-color-hover);
+  }
+
+  &:nth-child(1) a {
+    display: block;
+    background-image: none;
+  }
+
+  /* description */
+  &:nth-child(4) {
+    grid-area: desc;
+    padding: 0 var(--callout-link-padding);
+    color: var(--callout-link-desc-color);
+  }
+}
+
+.callout[data-callout="link"] .callout-content p {
+  /* cover image */
+
+  &:nth-child(2) img {
+    width: 100%;
+  }
+
+  /* link */
+
+  &:nth-child(3) a {
+    margin-top: var(--callout-link-padding);
+  }
+
+  /* description */
+
+  &:nth-child(4) {
+    margin-bottom: var(--callout-link-padding);
+  }
+}
+
+.callout[data-callout="hlink"] .callout-content {
+  grid-template-columns:
+    calc(var(--callout-link-max-height) * var(--callout-link-aspect-ratio))
+    auto;
+  grid-template-rows:
+    auto calc(var(--font-adaptive-normal) * var(--line-height-normal))
+    auto;
+  grid-template-areas:
+    "cover-image link"
+    "cover-image title"
+    "cover-image desc";
+}
+
+.callout[data-callout="hlink"] .callout-content p {
+  /* cover image */
+
+  &:nth-child(2) {
+    height: var(--callout-link-max-height);
+    width: auto;
+  }
+
+  &:nth-child(2) img {
+    width: auto;
+    height: var(--callout-link-max-height);
+    border-radius: 0;
+  }
+
+  /* link */
+
+  &:nth-child(3) {
+    align-self: end;
+  }
+
+  /* description */
+
+  &:nth-child(4) {
+    align-self: start;
+  }
+}
+
+.callout-link-image-contain
+  .callout[data-callout="link"]
+  .callout-content
+  p:nth-child(2)
+  img,
+.callout-link-image-contain
+  .callout[data-callout="hlink"]
+  .callout-content
+  p:nth-child(2)
+  img {
+  object-fit: contain;
+}
+
+/* hack for minimal theme image zoom */
+
+.callout[data-callout="link"]:active,
+.callout[data-callout="hlink"]:active {
+  container-type: normal;
+}
+
+.callout[data-callout="link"]:active p:nth-child(2) img,
+.callout[data-callout="hlink"]:active p:nth-child(2) img {
+  border-radius: var(--image-radius);
+}
+
+.callout[data-callout="hlink"]:active p:nth-child(2) img {
+  height: auto;
+}

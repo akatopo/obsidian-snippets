@@ -1,0 +1,32 @@
+.img-grid-gap-0 {
+  --img-grid-gap: 0;
+}
+
+.img-grid-gap-0
+  .markdown-preview-section
+  > div:has(.image-embed)
+  > p
+  > .internal-embed
+  img {
+  border-radius: 0;
+}
+
+.img-grid-gap-0
+  .markdown-preview-section
+  > div:has(.image-embed)
+  > p
+  > .internal-embed:nth-child(1)
+  img {
+  border-top-left-radius: var(--image-radius);
+  border-bottom-left-radius: var(--image-radius);
+}
+
+.img-grid-gap-0
+  .markdown-preview-section
+  > div:has(.image-embed)
+  > p
+  > .internal-embed:last-child
+  img {
+  border-top-right-radius: var(--image-radius);
+  border-bottom-right-radius: var(--image-radius);
+}
