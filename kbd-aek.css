@@ -1,0 +1,9 @@
+.suggestion-item.mod-complex .suggestion-hotkey,
+kbd {
+  --kbd-font: Univers, var(--font-text);
+  font-style: italic;
+  padding-left: 1px;
+  padding-right: 9px;
+  padding-top: 3px;
+  padding-bottom: 1px;
+}
