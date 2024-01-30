@@ -1,5 +1,5 @@
-.img-grid-gap-0 {
-  --img-grid-gap: 0;
+.img-grid-gap-0 .markdown-preview-section > div:has(.image-embed) > p {
+  grid-column-gap: 0;
 }
 
 .img-grid-gap-0
