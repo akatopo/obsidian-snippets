@@ -9,77 +9,154 @@ Callout format:
 > [!link] ignored ← title ignored, hlink produces horizontal link callout rather than vertical/card callout
 > [Example Title w/ link](https://example.com/xxx) ← title, can be just text but also link
 >
-> ![[S8288469ecf534a62b5462ae9ef47bf5dK.webp]] ← cover image
+> ![[S8288469ecf534a62b5462ae9ef47bf5dK.webp]] ← cover image (should be in wikilink format)
 >
 > [example.com](https://example.com/xxx) ← link, can be also be an empty link: []()
 >
-> A very nice description ← description
+> A very nice description ← description, can be skipped by using a not-printable character like <wbr>
 
 */
 
-.callout[data-callout="link"],
-.callout[data-callout="hlink"] {
-  /* callout */
+/*
 
-  --callout-padding: 0;
-  --callout-color: transparent;
-  --callout-blend-mode: normal;
+Class overrides:
 
-  --callout-content-padding: 0;
+These can be used in the cssclasses prop of a note
 
-  /* callout-link */
+- callout-link-image-contain will use object-fit: contain; for cover images
+- callout-link-max-w-20 will set the max width for the default variant to 20rem
+- callout-link-ratio-3-4 will set the cover image aspect ratio to 3/4.
+  When combined with callout-link-max-w-20 works well with tall and narrow cover images like movie posters
 
+*/
+
+/* @settings
+
+name: Link Callouts
+id: link-callout-settings
+settings:
+    -
+        id: callout-link-max-width-default
+        title: Maximum Width (Default Variant)
+        description: Maximum width for link callout when the callout container is over 50rem, should be greater or equal to the minimum width
+        type: variable-text
+        default: 30rem
+    -
+        id: callout-link-min-width
+        title: Minimum Width
+        description: Minimum width for both link callout variations
+        type: variable-text
+        default: 20rem
+    -
+        id: callout-link-max-height-horizontal
+        title: Maximum Height (Horizontal variant)
+        description: Maximum height for link callout
+        type: variable-text
+        default: 8rem
+    -
+        id: callout-link-background
+        title: Background Color
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-dark: rgb(18 18 18)
+        default-light: rgba(0, 0, 0, 0.024)
+    -
+        id: callout-link-link-color
+        title: Link Color
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-dark: rgb(125 125 125)
+        default-light: rgb(104, 104, 104)
+    -
+        id: callout-link-link-hover-color
+        title: Link Color (on hover)
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-dark: rgb(145 145 145)
+        default-light: rgb(84, 84, 84)
+    -
+        id: callout-link-title-color
+        title: Title Color
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-dark: rgb(241 241 241)
+        default-light: rgb(35, 35, 35)
+    -
+        id: callout-link-desc-color
+        title: Description Color
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-dark: rgb(125 125 125)
+        default-light: rgb(104, 104, 104)
+    -
+        id: callout-link-cover-image-background
+        title: Cover Image Background Color
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-dark: rgb(0, 0, 0)
+        default-light: rgb(255, 255, 255)
+*/
+
+body {
   --callout-link-padding: var(--size-4-4);
-  --callout-link-max-width: 30rem;
-  --callout-link-min-width: 20rem;
-  --callout-link-max-height: 8rem;
 
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  container-type: inline-size;
+  /* defaults in case style settings is not installed */
+
+  --callout-link-max-width-default: 30rem;
+  --callout-link-min-width: 20rem;
+  --callout-link-max-height-horizontal: 8rem;
 }
 
-.theme-dark .callout[data-callout="link"],
-.theme-dark .callout[data-callout="hlink"] {
-  /* callout */
-
-  --callout-content-background: var(--callout-link-background);
-
-  /* callout link */
+body.theme-dark {
+  /* defaults in case style settings is not installed */
 
   --callout-link-background: rgb(18 18 18);
   --callout-link-link-color: rgb(125 125 125);
   --callout-link-link-hover-color: rgb(145 145 145);
   --callout-link-title-color: rgb(241 241 241);
-  --callout-link-desc-color: var(--callout-link-link-color);
+  --callout-link-desc-color: rgb(125 125 125);
   --callout-link-cover-image-background: black;
 }
 
-.theme-light .callout[data-callout="link"],
-.theme-light .callout[data-callout="hlink"] {
-  /* callout */
-
-  --callout-content-background: var(--callout-link-background);
-
-  /* callout link */
+body.theme-light {
+  /* defaults in case style settings is not installed */
 
   --callout-link-background: rgba(0, 0, 0, 0.024);
   --callout-link-link-color: rgb(104, 104, 104);
   --callout-link-link-hover-color: rgb(84, 84, 84);
   --callout-link-title-color: rgb(35, 35, 35);
-  --callout-link-desc-color: var(--callout-link-link-color);
+  --callout-link-desc-color: rgb(104, 104, 104);
   --callout-link-cover-image-background: white;
+}
+
+.callout[data-callout="link"],
+.callout[data-callout="hlink"] {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  container-type: inline-size;
+
+  /* callout variable overrides */
+
+  --callout-padding: 0;
+  --callout-color: transparent;
+  --callout-blend-mode: normal;
+  --callout-content-padding: 0;
+  --callout-content-background: var(--callout-link-background);
 }
 
 .callout[data-callout="link"] {
   --callout-link-aspect-ratio: 1.91;
-  --callout-link-max-width: 30rem;
 }
 
 .callout[data-callout="hlink"] {
   --callout-link-aspect-ratio: 1;
-  --callout-link-max-width: 100%;
 }
 
 .callout-link-ratio-3-4 .callout[data-callout="link"] {
@@ -87,12 +164,12 @@ Callout format:
 }
 
 .callout-link-max-w-20 .callout[data-callout="link"] {
-  --callout-link-max-width: 20rem;
+  --callout-link-max-width-default: 20rem;
 }
 
 @container (min-width: 40rem) {
   .callout-link-max-w-20 .callout[data-callout="link"] .callout-content {
-    max-width: var(--callout-link-max-width);
+    max-width: var(--callout-link-max-width-default);
   }
 }
 
@@ -123,7 +200,7 @@ Callout format:
 
 @container (min-width: 50rem) {
   .callout[data-callout="link"] .callout-content {
-    max-width: var(--callout-link-max-width);
+    max-width: var(--callout-link-max-width-default);
   }
 }
 
@@ -226,7 +303,10 @@ Callout format:
 
 .callout[data-callout="hlink"] .callout-content {
   grid-template-columns:
-    calc(var(--callout-link-max-height) * var(--callout-link-aspect-ratio))
+    calc(
+      var(--callout-link-max-height-horizontal) *
+        var(--callout-link-aspect-ratio)
+    )
     auto;
   grid-template-rows:
     auto calc(var(--font-adaptive-normal) * var(--line-height-normal))
@@ -241,13 +321,13 @@ Callout format:
   /* cover image */
 
   &:nth-child(2) {
-    height: var(--callout-link-max-height);
+    height: var(--callout-link-max-height-horizontal);
     width: auto;
   }
 
   &:nth-child(2) img {
     width: auto;
-    height: var(--callout-link-max-height);
+    height: var(--callout-link-max-height-horizontal);
     border-radius: 0;
   }
 
