@@ -1,17 +1,19 @@
 /* based on: https://dylanatsmith.com/wrote/styling-the-kbd-element */
 
-.theme-dark .suggestion-item.mod-complex .suggestion-hotkey,
-.theme-dark kbd {
+body.theme-dark {
   --kbd-color-background: var(--color-base-50);
   --kbd-color-border: var(--color-base-30);
   --kbd-color-text: var(--color-base-10);
 }
 
-.suggestion-item.mod-complex .suggestion-hotkey,
-kbd {
+body.theme-light {
   --kbd-color-background: var(--color-base-10);
   --kbd-color-border: var(--color-base-40);
   --kbd-color-text: var(--text-normal);
+}
+
+.suggestion-item.mod-complex .suggestion-hotkey,
+kbd {
   --kbd-font: var(--font-text);
 
   display: inline-block;
