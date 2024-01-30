@@ -1,0 +1,21 @@
+/* @settings
+
+name: Monospace Font Feature Settings
+id: monospace-font-feature-settings
+settings:
+    -
+        id: monospace-font-feature-settings
+        title: Font feature settings
+        description: Feature settings used for monospace fonts in places like code blocks and frontmatter. See https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings for syntax
+        type: variable-text
+        default: '"ss02"'
+*/
+
+.markdown-rendered code,
+code[class*="language-"],
+pre[class*="language-"],
+.view-content > .cm-s-obsidian,
+.view-content > .markdown-source-view,
+.view-content > .markdown-source-view.mod-cm6 .cm-scroller {
+  font-feature-settings: var(--monospace-font-feature-settings, "ss02");
+}
