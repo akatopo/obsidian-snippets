@@ -1,0 +1,23 @@
+/* @settings
+
+name: Completed task opacity
+id: completed-task-opacity-settings
+settings:
+    -
+        id: completed-task-opacity
+        title: Completed task opacity
+        description: Used to dim completed tasks. Will dim all nested subtasks and bullet points
+        type: variable-number
+        default: 0.7
+*/
+
+ul > :is(li.task-list-item[data-task="x"], li.task-list-item[data-task="X"]) {
+  opacity: var(--completed-task-opacity, 0.7);
+}
+
+ul
+  > :is(li.task-list-item[data-task="x"], li.task-list-item[data-task="X"])
+  ul
+  > :is(li.task-list-item[data-task="x"], li.task-list-item[data-task="X"]) {
+  opacity: 1;
+}
