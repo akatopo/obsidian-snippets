@@ -1,0 +1,21 @@
+/* @settings
+
+name: Source Mode Editor Font
+id: source-mode-editor-font
+settings:
+    -
+        id: source-mode-editor-font
+        title: Source Mode Editor Font
+        description: Font to use exclusively for the source mode editor view
+        type: variable-text
+        default: 'var(--font-monospace)'
+*/
+
+/* Not sure if .mod-cm6 is needed */
+
+.view-content > .markdown-source-view:not(.is-live-preview),
+.view-content
+  > .markdown-source-view.mod-cm6:not(.is-live-preview)
+  .cm-scroller {
+  font-family: var(--source-mode-editor-font, var(--font-monospace));
+}
