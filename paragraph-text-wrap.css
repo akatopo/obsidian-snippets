@@ -1,0 +1,16 @@
+/* @settings
+
+name: Rendered markdown paragraph text wrap
+id: rendered-markdown-paragraph-text-wrap
+settings:
+    -
+        id: rendered-markdown-paragraph-text-wrap
+        title: Rendered markdown paragraph text wrap
+        description: Text wrapping to use for paragraphs in rendered markdown
+        type: variable-text
+        default: 'pretty'
+*/
+
+.markdown-rendered p {
+  text-wrap: var(--rendered-markdown-paragraph-text-wrap, pretty);
+}

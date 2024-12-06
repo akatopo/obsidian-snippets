@@ -1,0 +1,27 @@
+/* @settings
+
+name: Rendered markdown heading text wrap
+id: rendered-markdown-heading-text-wrap
+settings:
+    -
+        id: rendered-markdown-heading-text-wrap
+        title: Rendered markdown heading text wrap
+        description: Text wrapping to use for headings in rendered markdown
+        type: variable-text
+        default: 'balance'
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  text-wrap: var(--rendered-markdown-heading-text-wrap, balance);
+}
