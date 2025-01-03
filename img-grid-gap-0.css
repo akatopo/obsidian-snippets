@@ -1,4 +1,11 @@
-.img-grid-gap-0 .markdown-preview-section > div:has(.image-embed) > p {
+.img-grid-gap-0
+  .markdown-preview-section
+  div:has(> .image-embed ~ .image-embed),
+.img-grid-gap-0 .markdown-preview-section div:has(> img ~ img),
+.img-grid-gap-0 .markdown-preview-section p:has(> .image-embed ~ .image-embed),
+.img-grid-gap-0 .markdown-preview-section p:has(> .image-embed ~ img),
+.img-grid-gap-0 .markdown-preview-section p:has(> img ~ .image-embed),
+.img-grid-gap-0 .markdown-preview-section p:has(> img ~ img) {
   grid-column-gap: 0;
 }
 
