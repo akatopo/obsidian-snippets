@@ -1,0 +1,4 @@
+.markdown-preview-view img,
+.markdown-rendered img {
+  image-rendering: auto;
+}
