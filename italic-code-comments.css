@@ -1,4 +1,6 @@
 .token.comment,
-.cm-comment {
+.cm-comment,
+/* awful hack for shiki highlighter w/ github dark theme */
+.expressive-code .ec-line .code span[style="--0:#6A737D"] {
   font-style: italic;
 }
