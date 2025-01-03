@@ -1,3 +1,25 @@
-.img-rendering-pixelated .markdown-preview-section img {
+.img-rendering-pixelated
+  :is(
+    .markdown-preview-view img,
+    .markdown-rendered img,
+    .markdown-preview-view.is-readable-line-width
+      .markdown-preview-sizer
+      > .image-embed
+      img,
+    .markdown-preview-view.is-readable-line-width
+      .markdown-preview-sizer
+      > div:has(.image-embed)
+      img,
+    .markdown-source-view.mod-cm6.is-readable-line-width
+      .cm-contentContainer.cm-contentContainer
+      > .cm-content
+      > .image-embed
+      img,
+    .markdown-source-view.mod-cm6.is-readable-line-width
+      .cm-contentContainer.cm-contentContainer
+      > .cm-content
+      > div:has(.image-embed)
+      img
+  ) {
   image-rendering: pixelated;
 }
