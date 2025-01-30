@@ -1,0 +1,5 @@
+.img-ratio-16-4 .markdown-preview-section img {
+  aspect-ratio: 16 / 4;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
