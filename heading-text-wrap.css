@@ -11,17 +11,7 @@ settings:
         default: 'balance'
 */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.markdown-rendered h1,
-.markdown-rendered h2,
-.markdown-rendered h3,
-.markdown-rendered h4,
-.markdown-rendered h5,
-.markdown-rendered h6 {
+:is(h1, h2, h3, h4, h5, h6),
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
   text-wrap: var(--rendered-markdown-heading-text-wrap, balance);
 }
