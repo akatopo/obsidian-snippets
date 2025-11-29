@@ -17,5 +17,8 @@ pre[class*="language-"],
 .view-content > .cm-s-obsidian,
 .view-content > .markdown-source-view,
 .view-content > .markdown-source-view.mod-cm6 .cm-scroller {
-  font-feature-settings: var(--monospace-font-feature-settings, "ss02");
+  font-feature-settings: var(
+    --monospace-font-feature-settings,
+    "ss02"
+  ) !important;
 }
