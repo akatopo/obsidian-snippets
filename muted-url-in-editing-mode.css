@@ -1,0 +1,11 @@
+/* geo URIs are styled as links when using the Map View plugin */
+.cm-s-obsidian
+  span.cm-link
+  + :is(
+    span.cm-formatting.cm-formatting-link.cm-link,
+    span.cm-formatting.cm-formatting-image.cm-image
+  )
+  + span.cm-formatting.cm-formatting-link-string.cm-string.cm-url
+  + span.cm-url {
+  color: var(--text-formatting, var(--text-faint));
+}
