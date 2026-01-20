@@ -1,0 +1,77 @@
+/* see obsidian-markdown-furigana fork @ https://github.com/akatopo/obsidian-markdown-furigana */
+/* for furigana attribute and kanji class */
+
+/* maybe try popover API in the future */
+
+.cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight,
+.markdown-rendered mark {
+  & ruby > rt,
+  & ruby > rt[furigana]::after {
+    background-color: var(--text-highlight-bg);
+    color: var(--text-highlight-color, --text-normal);
+  }
+}
+
+ruby > rt {
+  font-size: 60%;
+  text-align: center;
+}
+
+ruby > rt[furigana] {
+  position: relative;
+  pointer-events: none;
+}
+
+/* kanji hitbox covers furigana for better hover behavior */
+ruby:has(rt[furigana]) > .kanji {
+  padding-top: 0.6em;
+  margin-top: -0.6em;
+}
+
+rt[furigana]::after {
+  background-color: var(--interactive-hover);
+  border-radius: var(--radius-s);
+  content: attr(furigana);
+  position: absolute;
+  right: -50%;
+  left: -50%;
+  font-size: 166%;
+  bottom: 2px;
+  will-change: scale;
+  padding-block: 5px;
+  transform-origin: bottom;
+  color: var(--text-normal);
+  transform: scale(0.6);
+  visibility: hidden;
+  transition: transform 0.125s ease-out, visibility 0.125s;
+  transition-behavior: allow-discrete;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+.kanji:hover + rt[furigana]::after {
+  transform: scale(1);
+  transition: transform 0.125s ease-out, visibility 0s;
+  z-index: var(--layer-popover);
+  visibility: visible;
+  pointer-events: none;
+}
+
+.cm-html-embed thead > tr > th:has(.kanji + rt[furigana]),
+.markdown-rendered thead > tr > th:has(.kanji + rt[furigana]),
+.cm-html-embed tbody > tr > td:has(.kanji + rt[furigana]),
+.markdown-rendered tbody > tr > td:has(.kanji + rt[furigana]),
+.callout-content:has(.kanji + rt[furigana]) {
+  transition: overflow 0.125s;
+  transition-behavior: allow-discrete;
+  overflow: unset;
+}
+
+.cm-html-embed thead > tr > th:has(.kanji:hover + rt[furigana]),
+.markdown-rendered thead > tr > th:has(.kanji:hover + rt[furigana]),
+.cm-html-embed tbody > tr > td:has(.kanji:hover + rt[furigana]),
+.markdown-rendered tbody > tr > td:has(.kanji:hover + rt[furigana]),
+.callout-content:has(.kanji:hover + rt[furigana]) {
+  overflow: visible;
+}
