@@ -1,0 +1,157 @@
+/*
+  Experimental use of text-box-trim, see:
+  https://github.com/jantimon/text-box-trim-examples/tree/main
+  https://caniuse.com/css-text-box-trim
+
+  Chrome 128-132 supports this behind a flag, chrome 133 has proper support.
+
+  Need to run Obsidian (chrome 128 as of 1.7.7) w/ CSSTextBoxTrim feature flag for these rules to take effect:
+  /Applications/Obsidian.app/Contents/MacOS/Obsidian --enable-features='CSSTextBoxTrim' &
+*/
+
+@supports (text-box-edge: cap alphabetic) {
+  /* paragraphs */
+
+  .markdown-rendered p:not(:has(:is(iframe, video))) {
+    /* iframes and videos inside of paragraphs don't seem to play well */
+    text-box-trim: trim-end;
+    text-box-edge: cap alphabetic;
+  }
+
+  /* headings */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .markdown-rendered h1,
+  .markdown-rendered h2,
+  .markdown-rendered h3,
+  .markdown-rendered h4,
+  .markdown-rendered h5,
+  .markdown-rendered h6,
+  .inline-title,
+  .metadata-properties-heading {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+
+  /* blockquotes */
+
+  .markdown-rendered blockquote {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+  }
+
+  /* callouts */
+
+  .callout-title {
+    align-items: center;
+  }
+
+  .callout-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  .callout-title-inner {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+
+  /* -webkit-line-clamp: 1 seems to break text-box-trim */
+  .markdown-rendered :is([data-callout="link"], [data-callout="hlink"]) p {
+    text-box-trim: none;
+  }
+
+  /* lists */
+
+  .markdown-preview-view ol > li,
+  .markdown-preview-view ul > li,
+  .markdown-source-view ol > li,
+  .markdown-source-view ul > li,
+  .mod-cm6 .HyperMD-list-line.cm-line {
+    /* text-box-trim: both;
+    text-box-trim: trim-both; */
+    /* --list-spacing: 0;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic; */
+    /* min-height: 1lh; */
+    /* line-height: 1; */
+    /* padding: 0; */
+  }
+
+  .markdown-preview-view ol > li p:last-child,
+  .markdown-preview-view ul > li p:last-child,
+  .markdown-source-view ol > li p:last-child,
+  .markdown-source-view ul > li p:last-child,
+  .mod-cm6
+    .HyperMD-list-line.cm-line
+    + .HyperMD-list-line.cm-line
+    p:last-child {
+    text-box-trim: trim-start;
+  }
+
+  .markdown-preview-view ol > li p:first-of-type,
+  .markdown-preview-view ul > li p:first-of-type,
+  .markdown-source-view ol > li p:first-of-type,
+  .markdown-source-view ul > li p:first-of-type,
+  .mod-cm6
+    .HyperMD-list-line.cm-line
+    + .HyperMD-list-line.cm-line
+    p:first-of-type {
+    text-box-trim: trim-end;
+  }
+
+  .markdown-preview-view ol > li p:only-of-type,
+  .markdown-preview-view ul > li p:only-of-type,
+  .markdown-source-view ol > li p:only-of-type,
+  .markdown-source-view ul > li p:only-of-type,
+  .mod-cm6
+    .HyperMD-list-line.cm-line
+    + .HyperMD-list-line.cm-line
+    p:only-of-type {
+    text-box-trim: none;
+  }
+
+  /* props */
+  /* .metadata-property:not([data-property-key="tags"]) .multi-select-pill-content, */
+  .metadata-property-value .external-link.multi-select-pill-content,
+  .metadata-property-value .internal-link .multi-select-pill-content {
+    /* text-box-trim: both;
+    text-box-trim: trim-both;
+    text-box-edge: cap text;
+    overflow: visible;
+    background-position-y: 0; */
+  }
+
+  .multi-select-pill-content {
+    /* text-box-trim: both;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    overflow: visible; */
+  }
+
+  input.metadata-property-key-input {
+    /* text-box-trim: both;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    overflow: visible; */
+  }
+
+  .multi-select-input {
+    /* text-box-trim: both;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    overflow: visible;
+    align-self: stretch; */
+  }
+
+  .multi-select-input:empty:before {
+    /* text-box-trim: both;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic; */
+  }
+}
