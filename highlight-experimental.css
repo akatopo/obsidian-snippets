@@ -1,0 +1,146 @@
+/* @settings
+
+name: Highlight styling
+id: highlight-styling-settings
+settings:
+    -
+        id: highlight-background
+        title: Highlight Background Color
+        type: variable-themed-color
+        format: hsl
+        opacity: true
+        default-dark: hsla(33.26, 80%, 65.69%, 1)
+        default-light: hsla(33.26, 80%, 75.69%, 1)
+    -
+        id: highlight-box-shadow-offset
+        title: Highlight Box Shadow Offset
+        type: variable-number
+        format: px
+        default: 2
+*/
+
+body {
+  --highlight-box-shadow-offset: 2px;
+  --is-flashing-bg: var(--text-highlight-bg);
+}
+
+body.theme-dark :is(.cm-s-obsidian, .markdown-rendered) {
+  --text-highlight-bg: var(--highlight-background, hsl(33.26 80 65.69));
+  --text-highlight-color: hsl(from var(--text-highlight-bg) h s calc(l - 60));
+}
+
+body.theme-light :is(.cm-s-obsidian, .markdown-rendered) {
+  --text-highlight-bg: var(--highlight-background, hsl(33.26 80 75.69));
+  --text-highlight-color: hsl(from var(--text-highlight-bg) h s calc(l - 60));
+}
+
+/* mark stylings in cm and rendered md */
+
+.markdown-rendered mark,
+.cm-s-obsidian span.cm-highlight,
+.cm-s-obsidian span.cm-formatting-highlight {
+  color: var(--text-highlight-color);
+}
+
+.markdown-rendered mark code,
+.cm-s-obsidian .cm-highlight.cm-inline-code:not(.cm-formatting),
+.cm-s-obsidian .cm-highlight.cm-inline-code.cm-formatting {
+  background-color: hsl(from var(--text-highlight-bg) h s calc(l - 20));
+  color: var(--text-highlight-color);
+}
+
+.markdown-rendered mark {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  /* FIXME */
+  /* border-radius: 0.8em 0.5em; */
+  /* Combine drop shadow filter func and box shadow for a more pleasant effect */
+  box-shadow: var(--highlight-box-shadow-offset) 0
+      hsla(from var(--text-highlight-bg) h s l / 1),
+    calc(-1 * var(--highlight-box-shadow-offset)) 0
+      hsla(from var(--text-highlight-bg) h s l / 1);
+  filter: drop-shadow(
+      var(--highlight-box-shadow-offset) 0
+        hsla(from var(--text-highlight-bg) h s l / 1)
+    )
+    drop-shadow(
+      calc(-1 * var(--highlight-box-shadow-offset)) 0
+        hsla(from var(--text-highlight-bg) h s l / 1)
+    );
+}
+
+/* inline link colors */
+
+.markdown-rendered mark .internal-link.is-unresolved {
+  --link-unresolved-color: hsl(from var(--text-highlight-bg) h s calc(l - 50));
+  --link-unresolved-decoration-color: var(----link-unresolved-color);
+  /* color: var(--link-unresolved-color); */
+  /* opacity: var(--link-unresolved-opacity); */
+  /* filter: var(--link-unresolved-filter); */
+  /* text-decoration-style: var(--link-unresolved-decoration-style); */
+  /* text-decoration-color: var(--link-unresolved-decoration-color); */
+}
+
+@media (hover: hover) {
+  .markdown-rendered mark .internal-link.is-unresolved:hover {
+    --link-color-hover: hsl(from var(--text-highlight-bg) h s calc(l - 50));
+    /* opacity: 1;
+      color: var(--link-color-hover);
+      text-decoration-color: var(--link-color-hover);
+      text-decoration-line: var(--link-decoration-hover); */
+  }
+}
+
+.markdown-rendered mark .external-link,
+.markdown-source-view.mod-cm6 .cm-highlight.external-link {
+  background-blend-mode: multiply;
+}
+
+.markdown-rendered mark a,
+.markdown-rendered mark .internal-link,
+.markdown-source-view.mod-cm6
+  :is(
+    .cm-highlight.cm-link,
+    .cm-highlight.cm-url,
+    .cm-formatting-highlight.cm-link,
+    .cm-formatting-highlight.cm-url
+  )
+  .cm-underline {
+  color: hsl(from var(--text-highlight-bg) h s calc(l - 50));
+}
+@media (hover: hover) {
+  .markdown-rendered mark .internal-link:hover {
+    --link-color-hover: hsl(from var(--text-highlight-bg) h s calc(l - 45));
+  }
+}
+.markdown-rendered mark a:hover,
+.markdown-source-view.mod-cm6
+  :is(
+    .cm-highlight.cm-link,
+    .cm-highlight.cm-url,
+    .cm-formatting-highlight.cm-link,
+    .cm-formatting-highlight.cm-url
+  )
+  .cm-underline:hover {
+  color: hsl(from var(--text-highlight-bg) h s calc(l - 45));
+}
+
+/* Table overflows */
+
+.markdown-rendered tbody tr > td:has(mark),
+.markdown-rendered thead tr > th:has(mark) {
+  overflow: visible;
+}
+
+/* caret color for cm */
+
+.cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight {
+  caret-color: #000;
+}
+
+/* retain original bg for flashing non-mark highlights */
+
+.is-flashing {
+  background-color: var(--is-flashing-bg, --text-highlight-bg) !important;
+}
