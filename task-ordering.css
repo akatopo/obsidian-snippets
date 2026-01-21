@@ -1,0 +1,8 @@
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+ul > li.task-list-item[data-task="x" i] {
+  order: 1;
+}
