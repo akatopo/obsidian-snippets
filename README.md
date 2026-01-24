@@ -123,7 +123,7 @@ And this is how the horizontal link is produced:
 | `callout-link-desc-color`             | `rgb(125 125 125)` (dark), `rgb(104, 104, 104)` light   |
 | `callout-link-cover-image-background` | `rgb(0, 0, 0)` (dark), `rgb(255, 255, 255)` light       |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### `kbd` styling
 
@@ -133,7 +133,7 @@ And this is how the horizontal link is produced:
 
 Styling for the `<kbd>` elements and hotkey display.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Apple extended keyboard `kbd` styling
 
@@ -141,7 +141,7 @@ Styling for the `<kbd>` elements and hotkey display.
 
 [kbd.css's](#kbd-styling) sibling, uses the Univers typeface in italic to match the style of the Apple extended keyboard keycap style. Falls back to `--font-text` if Univers is not available.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Highlight styling ![](img/experimental.svg) ![](img/style_settings.svg)
 
@@ -158,7 +158,7 @@ Custom highlight styling, uses pseudo-random border radii and [`box-decoration-b
 | `highlight-background`        | `hsla(33.26, 80%, 65.69%, 1)` (dark), `hsla(33.26, 80%, 75.69%, 1)` (light) |
 | `highlight-box-shadow-offset` | `2px`                                                                       |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Completed task opacity ![](img/style_settings.svg)
 
@@ -174,7 +174,7 @@ Used to dim completed tasks. Will dim all nested subtasks and bullet points.
 | ------------------------ | ------- |
 | `completed-task-opacity` | 0.7     |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Move completed tasks to bottom
 
@@ -184,7 +184,7 @@ Used to dim completed tasks. Will dim all nested subtasks and bullet points.
 
 (Visually) moves completed tasks to the bottom of their list regardless of source order. Works only in reading view.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### `<ruby>` styling ![](img/experimental.svg) ![](img/requires_plugin_or_theme.svg)
 
@@ -196,7 +196,7 @@ Styling for the `ruby` element. Depends on this [fork](https://github.com/akatop
 
 ## Typography
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### `text-wrap` value for headings ![](img/style_settings.svg)
 
@@ -210,7 +210,7 @@ Text wrapping to use for headings in rendered markdown. Works only in reading vi
 | ------------------------------------- | --------- |
 | `rendered-markdown-heading-text-wrap` | `balance` |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### `text-wrap` value for paragraphs ![](img/style_settings.svg)
 
@@ -224,7 +224,7 @@ Text wrapping to use for paragraphs in rendered markdown. Works only in reading 
 | --------------------------------------- | -------- |
 | `rendered-markdown-paragraph-text-wrap` | `pretty` |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### `1lh` paragraph spacing
 
@@ -232,7 +232,7 @@ Text wrapping to use for paragraphs in rendered markdown. Works only in reading 
 
 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length#lh)
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Monospace font feature settings ![](img/style_settings.svg)
 
@@ -246,7 +246,7 @@ Feature settings used for monospace fonts in places like code blocks and frontma
 | --------------------------------- | -------- |
 | `monospace-font-feature-settings` | `"ss02"` |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Muted URL text in markdown source
 
@@ -256,7 +256,7 @@ Feature settings used for monospace fonts in places like code blocks and frontma
 
 Uses [minimal theme](https://github.com/kepano/obsidian-minimal)'s [`--text-formatting`](https://github.com/kepano/obsidian-minimal/blob/3dc11f98fa0c8a1badf36ff5fcc85f5a4bc29682/src/scss/variables/theme.scss#L97) value and falls back to Obsidian's [`--text-faint`](https://docs.obsidian.md/Reference/CSS+variables/Foundations/Colors#Text+foreground+colors) value.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Source Mode Editor Font ![](img/style_settings.svg)
 
@@ -270,7 +270,7 @@ Font to use exclusively for the source mode in the editing view.
 | ------------------------- | ----------------------- |
 | `source-mode-editor-font` | `var(--font-monospace)` |
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Disable the default subpixel antialiasing (MacOS only)
 
@@ -278,7 +278,7 @@ Font to use exclusively for the source mode in the editing view.
 
 Makes fonts appear visually lighter by applying `-webkit-font-smoothing: antialiased` to the document body. More about this in this [blog post](https://dbushell.com/2024/11/05/webkit-font-smoothing/).
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### italicized comments for code blocks ![](img/requires_plugin_or_theme.svg)
 
@@ -286,7 +286,7 @@ Makes fonts appear visually lighter by applying `-webkit-font-smoothing: antiali
 
 Pretty specific hack for italicized code comments for the [shiki plugin](https://github.com/mProjectsCode/obsidian-shiki-plugin) using the github dark theme.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### `text-box-trim` ![](img/experimental.svg)
 
@@ -296,7 +296,7 @@ Experimental use of [`text-box-trim`](https://developer.mozilla.org/en-US/docs/W
 
 ## Images
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Force 16/4 image ratio ![](img/cssclasses.svg)
 
@@ -306,7 +306,7 @@ Experimental use of [`text-box-trim`](https://developer.mozilla.org/en-US/docs/W
 
 Forces an ultra-wide 16/4 ratio for all note images when adding `img-ratio-16-4` to `cssclasses`. Works only in reading view.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Force 100% image width ![](img/cssclasses.svg)
 
@@ -314,7 +314,7 @@ Forces an ultra-wide 16/4 ratio for all note images when adding `img-ratio-16-4`
 
 Forces a 100% width for all note images that have not a width defined already (ex. `![[img.png|256]]`) when adding `img-width-100` to `cssclasses`. Works only in reading view.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### No image grid column gaps ![](img/requires_plugin_or_theme.svg) ![](img/cssclasses.svg)
 
@@ -326,7 +326,7 @@ Eliminates column gaps in [minimal theme](https://github.com/kepano/obsidian-min
 
 Usable by adding `img-grid-gap-0` to the `cssclasses` frontmatter prop.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Auto image rendering
 
@@ -334,7 +334,7 @@ Usable by adding `img-grid-gap-0` to the `cssclasses` frontmatter prop.
 
 Sets `image-rendering` to `auto` by default for both editing and reading views.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Pixelated image rendering ![](img/cssclasses.svg)
 
@@ -344,7 +344,7 @@ Sets `image-rendering` to `pixelated` for note images. Useful for scaled pixel a
 
 Usable by adding `img-rendering-pixelated` to the `cssclasses` frontmatter prop.
 
-[🔼 Back to top](#css-snippets-for-obsidian)
+[🔼 Back to top](#css-snippets-for-obsidian-)
 
 ## Credits
 
