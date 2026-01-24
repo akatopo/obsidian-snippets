@@ -113,9 +113,9 @@ And this is how the horizontal link is produced:
 
 | id                                    | default                                                 |
 | ------------------------------------- | ------------------------------------------------------- |
-| `callout-link-max-width-default`      | 30rem                                                   |
-| `callout-link-min-width`              | 20rem                                                   |
-| `callout-link-max-height-horizontal`  | 8rem                                                    |
+| `callout-link-max-width-default`      | `30rem`                                                 |
+| `callout-link-min-width`              | `20rem`                                                 |
+| `callout-link-max-height-horizontal`  | `8rem`                                                  |
 | `callout-link-background`             | `rgb(18 18 18)` (dark), `rgba(0, 0, 0, 0.024)` (light)  |
 | `callout-link-link-color`             | `rgb(125 125 125)` (dark), `rgb(104, 104, 104)` (light) |
 | `callout-link-link-hover-color`       | `rgb(145 145 145)` (dark), `rgb(84, 84, 84)` light      |
@@ -172,7 +172,7 @@ Used to dim completed tasks. Will dim all nested subtasks and bullet points.
 
 | id                       | default |
 | ------------------------ | ------- |
-| `completed-task-opacity` | 0.7     |
+| `completed-task-opacity` | `0.7`   |
 
 [🔼 Back to top](#css-snippets-for-obsidian-)
 
