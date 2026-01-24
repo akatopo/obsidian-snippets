@@ -59,7 +59,8 @@ Styles an obsidian callout component as a vertical (`link`) or horizontal (`hlin
 Here's how it works, best used in templates because of the finicky syntax. All parts are required:
 
 ```markdown
-> [!link] ignored <!-- title ignored, hlink produces horizontal link callout rather than vertical/card callout --> > [Example Title w/ link](https://example.com/xxx) <!-- title, can be just text but also link -->
+> [!link] ignored <!-- title ignored, hlink produces horizontal link callout rather than vertical/card callout -->
+> [Example Title w/ link](https://example.com/xxx) <!-- title, can be just text but also link -->
 >
 > ![[S8288469ecf534a62b5462ae9ef47bf5dK.webp]] <!-- cover image, can also be in the standard markdown inline image link format -->
 >
