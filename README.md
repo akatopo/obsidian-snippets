@@ -194,9 +194,9 @@ Used to dim completed tasks. Will dim all nested subtasks and bullet points.
 
 Styling for the `ruby` element. Depends on this [fork](https://github.com/akatopo/obsidian-markdown-furigana/) of [obsidian-markdown-furigana](https://github.com/steven-kraft/obsidian-markdown-furigana) for the hover effect.
 
-## Typography
-
 [🔼 Back to top](#css-snippets-for-obsidian-)
+
+## Typography
 
 ### `text-wrap` value for headings ![](img/style_settings.svg)
 
@@ -294,9 +294,9 @@ Pretty specific hack for italicized code comments for the [shiki plugin](https:/
 
 Experimental use of [`text-box-trim`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-box-trim), check [text-box-trim-examples](https://github.com/jantimon/text-box-trim-examples/tree/main) for examples. Not recommended for general use.
 
-## Images
-
 [🔼 Back to top](#css-snippets-for-obsidian-)
+
+## Images
 
 ### Force 16/4 image ratio ![](img/cssclasses.svg)
 
