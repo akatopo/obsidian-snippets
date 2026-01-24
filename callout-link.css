@@ -9,7 +9,7 @@ Callout format:
 > [!link] ignored ← title ignored, hlink produces horizontal link callout rather than vertical/card callout
 > [Example Title w/ link](https://example.com/xxx) ← title, can be just text but also link
 >
-> ![[S8288469ecf534a62b5462ae9ef47bf5dK.webp]] ← cover image (should be in wikilink format)
+> ![[S8288469ecf534a62b5462ae9ef47bf5dK.webp]] ← cover image, can also be in the standard markdown inline image link format
 >
 > [example.com](https://example.com/xxx) ← link, can be also be an empty link: []()
 >
