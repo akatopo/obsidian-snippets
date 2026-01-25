@@ -7,17 +7,17 @@ Personal collection of obsidian snippets. These are written with the dark varian
 
 - [Installing](#installing)
 - [Components](#components)
-  - [Link callout / Card  ](#link-callout--card--)
+  - [Link callout / Card ](#link-callout--card--)
     - [`cssclasses`](#cssclasses)
     - [Settings](#settings)
   - [`kbd` styling](#kbd-styling)
   - [Apple extended keyboard `kbd` styling](#apple-extended-keyboard-kbd-styling)
-  - [Highlight styling  ](#highlight-styling--)
+  - [Highlight styling ](#highlight-styling--)
     - [Settings](#settings-1)
   - [Completed task opacity ](#completed-task-opacity-)
     - [Settings](#settings-2)
   - [Move completed tasks to bottom](#move-completed-tasks-to-bottom)
-  - [`<ruby>` styling  ](#ruby-styling--)
+  - [`<ruby>` styling ](#ruby-styling--)
 - [Typography](#typography)
   - [`text-wrap` value for headings ](#text-wrap-value-for-headings-)
     - [Settings](#settings-3)
@@ -35,7 +35,7 @@ Personal collection of obsidian snippets. These are written with the dark varian
 - [Images](#images)
   - [Force 16/4 image ratio ](#force-164-image-ratio-)
   - [Force 100% image width ](#force-100-image-width-)
-  - [No image grid column gaps  ](#no-image-grid-column-gaps--)
+  - [No image grid column gaps ](#no-image-grid-column-gaps--)
   - [Auto image rendering](#auto-image-rendering)
   - [Pixelated image rendering ](#pixelated-image-rendering-)
 - [Credits](#credits)
@@ -337,6 +337,8 @@ Sets `image-rendering` to `auto` by default for both editing and reading views.
 [🔼 Back to top](#css-snippets-for-obsidian-)
 
 ### Pixelated image rendering ![](img/cssclasses.svg)
+
+[`img-rendering-pixelated.css`](img-rendering-pixelated.css)
 
 ![](img/nearest-neighbor-comparison2.png)
 
