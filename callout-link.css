@@ -226,6 +226,11 @@ body.theme-light {
     width: 100%;
     aspect-ratio: var(--callout-link-aspect-ratio);
     background-color: var(--callout-link-cover-image-background);
+
+    > .image-embed {
+      width: 100%;
+      padding: 0;
+    }
   }
 
   &:nth-child(2) img {
@@ -356,9 +361,9 @@ body.theme-light {
 /* hack for minimal theme image zoom */
 
 :is(
-    .callout[data-callout="link"]:active,
-    .callout[data-callout="hlink"]:active
-  ):has(.image-embed:not(.canvas-node-content):active) {
+  .callout[data-callout="link"]:active,
+  .callout[data-callout="hlink"]:active
+):has(.image-embed:not(.canvas-node-content):active) {
   container-type: normal;
 }
 
