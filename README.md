@@ -108,6 +108,8 @@ And this is how the horizontal link is produced:
 - `callout-link-max-w-20` will set the max width for the default variant to `20rem`
 - `callout-link-ratio-3-4` will set the cover image aspect ratio to 3/4.
   When combined with `callout-link-max-w-20` works well with tall and narrow cover images like movie posters
+- `callout-link-cover-image-background-white` will force cover image background color to white
+- `callout-link-cover-image-background-black` will force cover image background color to black
 
 #### Settings
 

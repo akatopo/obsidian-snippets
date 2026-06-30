@@ -135,6 +135,14 @@ body.theme-light {
   --callout-link-cover-image-background: white;
 }
 
+.callout-link-cover-image-background-white {
+  --callout-link-cover-image-background: white;
+}
+
+.callout-link-cover-image-background-black {
+  --callout-link-cover-image-background: black;
+}
+
 .callout[data-callout="link"],
 .callout[data-callout="hlink"] {
   display: flex;
